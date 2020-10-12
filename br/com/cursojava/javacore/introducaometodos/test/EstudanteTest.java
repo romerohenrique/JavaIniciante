@@ -11,6 +11,7 @@ public class EstudanteTest {
         e1.setNotas(new double[]{5, 3, 9, 4});
         e1.imprirEstuante();
         e1.somarMedia();
+        System.out.println("Aluno Aprovado ? "+e1.isAprovado());
         System.out.println("_____________________________________________");
         Estudante e2 = new Estudante();
         e2.setNome("Carlos");
@@ -18,5 +19,6 @@ public class EstudanteTest {
         e2.setNotas(new double[]{10,8, 10});
         e2.imprirEstuante();
         e2.somarMedia();
+        System.out.println("Aluno Aprovado ? "+e2.isAprovado());
     }
 }
