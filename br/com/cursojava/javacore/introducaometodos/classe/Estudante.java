@@ -1,23 +1,46 @@
 package br.com.cursojava.javacore.introducaometodos.classe;
 
 public class Estudante {
-    public String nome;
-    public int idade;
-    public double[] notas;
+    private String nome;
+    private int idade;
+    private double[] notas;
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    public void setNotas(double[] notas) {
+        this.notas = notas;
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public int getIdade() {
+        return this.idade;
+    }
+
+    public double[] getNotas() {
+        return this.notas;
+    }
 
     public void imprirEstuante() {
         System.out.println("Estudante: " + this.nome);
         System.out.println("Idade: " + this.idade);
         if (notas != null)
-        for (double nota : notas) {
-            System.out.print(nota + " ");
-        }
+            for (double nota : this.notas) {
+                System.out.print(nota + " ");
+            }
 
     }
 
     public void somarMedia() {
-        if (notas == null){
+        if (notas == null) {
             System.out.println("Aluno sem notas");
             return;
         }
