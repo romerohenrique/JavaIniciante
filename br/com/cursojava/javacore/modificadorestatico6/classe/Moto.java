@@ -10,6 +10,7 @@ package br.com.cursojava.javacore.modificadorestatico6.classe;
 public class Moto {
     private String marca;
     private int velocidadeMaxima;
+    //modificador estático
     public static int velocidadeLimite = 200;
 
     public Moto(String marca, int velocidadeMaxima) {
