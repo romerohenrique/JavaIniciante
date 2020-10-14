@@ -5,6 +5,7 @@ package br.com.cursojava.javacore.modificadorestatico6.classe;
  * a variável por ser estática, pertence genuinamente a classe Moto,
  * com isso, quando for instanciada como objeto:se for alterado um atributo estático,
  * todos os objetos modificarão.
+ * métodos estático só pode referenciar atributo estático;
  */
 
 public class Moto {
