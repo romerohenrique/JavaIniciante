@@ -10,7 +10,7 @@ package br.com.cursojava.javacore.blocodeinicializacao.classe;
 public class Financiamento {
     private int[] parcelas;
 
-
+    //bloco de Inicialização
     {
         parcelas = new int[36];
         System.out.println("detro do bloco de inicialização");
