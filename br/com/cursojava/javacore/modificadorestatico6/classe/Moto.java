@@ -25,6 +25,7 @@ public class Moto {
         System.out.println("______________________________________________");
         System.out.println("Marca " + this.marca);
         System.out.println("Velocidade Máxima " + this.velocidadeMaxima);
+        //pelo o atributo velocidadeLimite ser estático, não necessita chamar pelo this, pois não é pertencente do objeto.
         System.out.println("Velocidade Limite " + velocidadeLimite);
     }
 
