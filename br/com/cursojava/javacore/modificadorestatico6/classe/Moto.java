@@ -11,7 +11,7 @@ public class Moto {
     private String marca;
     private int velocidadeMaxima;
     //modificador estático
-    public static int velocidadeLimite = 200;
+    public static int velocidadeLimite;
 
     public Moto(String marca, int velocidadeMaxima) {
         this.marca = marca;
@@ -27,6 +27,15 @@ public class Moto {
         System.out.println("Velocidade Máxima " + this.velocidadeMaxima);
         //pelo o atributo velocidadeLimite ser estático, não necessita chamar pelo this, pois não é pertencente do objeto.
         System.out.println("Velocidade Limite " + velocidadeLimite);
+    }
+
+    //Metodos estáticos: o atributo tem que ser estático para ser acessado.
+    public static int getVelocidadeLimite() {
+        return velocidadeLimite;
+    }
+
+    public static void setVelocidadeLimite(int velocidadeLimite) {
+        Moto.velocidadeLimite = velocidadeLimite;
     }
 
     public String getMarca() {
