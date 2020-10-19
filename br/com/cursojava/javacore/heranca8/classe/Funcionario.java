@@ -10,6 +10,9 @@ public class Funcionario extends Pessoa {
     private double salario;
 
 
+    public Funcionario(String nome){
+        super(nome);
+    }
     public void imprimir() {
         //sobrescrita de método.
         super.imprimir();

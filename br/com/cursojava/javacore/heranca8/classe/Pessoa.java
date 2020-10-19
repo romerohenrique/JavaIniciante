@@ -10,6 +10,16 @@ public class Pessoa {
     protected Endereco endereco;
 
 
+    public Pessoa(String nome) {
+        this.nome = nome;
+    }
+
+    public Pessoa(String nome, String cpf) {
+        this(nome);
+        this.cpf = cpf;
+    }
+
+
     public void imprimir() {
         System.out.println("Nome: " + this.nome);
         System.out.println("CPF: " + this.cpf);
