@@ -1,4 +1,4 @@
-package br.com.cursojava.javacore.sobrescrita9.tes;
+package br.com.cursojava.javacore.sobrescrita9.test;
 import br.com.cursojava.javacore.sobrescrita9.classe.Pessoa;
 
 
