@@ -4,7 +4,7 @@ import br.com.cursojava.javacore.enum11.classe.Cliente;
 import br.com.cursojava.javacore.enum11.classe.TipoCliente;
 
 /**
- * Enum: usa atributo do TipoCliente. Se torna muito mais seguro, pra não correr o risco de se
+ * Enum: usa atributo do TipoCliente. Se torna muito mais seguro, pra não correr o risco de ser
  * passado um valor que não exista.
  */
 

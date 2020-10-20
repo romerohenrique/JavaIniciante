@@ -1,6 +1,7 @@
 package br.com.cursojava.javacore.enum11.classe;
 
 public class Cliente {
+    //uma outra forma de criar constantes dentro da classe Pai.
     public enum TipoPagamento {
         AVISTA, APRAZO
     }
@@ -42,11 +43,10 @@ public class Cliente {
         this.tipoCliente = tipoCliente;
     }
 
-    public TipoPagamento getTipoPagamento() {
-        return tipoPagamento;
-    }
-
     public void setTipoPagamento(TipoPagamento tipoPagamento) {
         this.tipoPagamento = tipoPagamento;
+    }
+    public TipoPagamento getTipoPagamento() {
+        return tipoPagamento;
     }
 }
