@@ -1,5 +1,12 @@
 package br.com.cursojava.javacore.classesabstratas12.classe;
 
+/**
+ * Classe abstrata: ela não pode ser instanciada, mas sim extendida;
+ * Classe abstrata: pode conter métodos não abstratos, porém os métodos abstratos, obrigatóriamente
+ * precisam que a classe seja abstrata.
+ * método abstrato: a classe que extende é obrigado a sobrescrever o método.
+ */
+
 public abstract class Funcionario {
 
     protected String nome;
