@@ -12,7 +12,7 @@ public class Gerente extends Funcionario {
 
     @Override
     public void calcularSalario() {
-        salario = salario + (salario * 0.02);
+        this.salario = salario + (salario * 0.02);
         System.out.println("Salário + comissão= R$" + salario);
     }
 }

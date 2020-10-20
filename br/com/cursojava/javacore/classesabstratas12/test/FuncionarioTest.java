@@ -5,7 +5,7 @@ import br.com.cursojava.javacore.classesabstratas12.classe.Vendedor;
 
 public class FuncionarioTest {
     public static void main(String[] args) {
-        Gerente g = new Gerente("anna", "111.222.111-11", 12000);
+        Gerente g = new Gerente("Rômulo", "111.222.111-11", 12000);
         Vendedor v = new Vendedor("Carlos", "267.987.008-22", 900, 10000);
 
         System.out.println(g);

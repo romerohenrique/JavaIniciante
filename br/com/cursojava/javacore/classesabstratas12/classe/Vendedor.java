@@ -14,7 +14,7 @@ public class Vendedor extends Funcionario {
 
     @Override
     public void calcularSalario() {
-        salario = salario + (vendaTotal * 0.005);
+        this.salario = salario + (vendaTotal * 0.005);
         System.out.println("Salário + comissão= R$" + salario);
 
     }
