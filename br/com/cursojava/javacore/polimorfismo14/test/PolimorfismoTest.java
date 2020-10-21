@@ -12,23 +12,9 @@ public class PolimorfismoTest {
         Vendedor v1 = new Vendedor("Regina", 1200, 12000);
         RelatorioPagamento r = new RelatorioPagamento();
 
-        g.calcularSalario();
-        System.out.println(g);
-        System.out.println("_________________________");
-        v.calcularSalario();
-        System.out.println(v);
-        v1.calcularSalario();
-        System.out.println(v1);
-
-        System.out.println("***************************");
         r.pagamentoFuncionario(g);
         r.pagamentoFuncionario(v);
         r.pagamentoFuncionario(v1);
-
-        //passando funções de uma subclasse para uma super classe
-        Funcionario f = g;
-        System.out.println(f.getSalario());
-
 
     }
 }
