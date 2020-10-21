@@ -25,6 +25,7 @@ public class PolimorfismoTest {
         r.pagamentoFuncionario(v);
         r.pagamentoFuncionario(v1);
 
+        //passando funções de uma subclasse para uma super classe
         Funcionario f = g;
         System.out.println(f.getSalario());
 
