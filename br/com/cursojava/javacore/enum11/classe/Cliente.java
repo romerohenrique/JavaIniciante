@@ -3,7 +3,21 @@ package br.com.cursojava.javacore.enum11.classe;
 public class Cliente {
     //uma outra forma de criar constantes dentro da classe Pai.
     public enum TipoPagamento {
-        AVISTA, APRAZO
+        AVISTA("A"), APRAZO("B");
+
+        private String tipoPagamento;
+
+        TipoPagamento(String tipoPagamento) {
+            this.tipoPagamento = tipoPagamento;
+        }
+
+        public String getTipoPagamento() {
+            return tipoPagamento;
+        }
+
+        public void setTipoPagamento(String tipoPagamento) {
+            this.tipoPagamento = tipoPagamento;
+        }
     }
 
     private String nome;
@@ -22,8 +36,9 @@ public class Cliente {
         return "Cliente{" +
                 "nome='" + nome + '\'' +
                 ", tipoCliente= " + tipoCliente.getNome() +
-                ", tipoPagamento= " + tipoPagamento +
                 ", numero= " + tipoCliente.getTipo() +
+                ", Forma Pagamento= " + tipoPagamento +
+                ", tipo pagamento: " + tipoPagamento.getTipoPagamento() +
                 '}';
     }
 
