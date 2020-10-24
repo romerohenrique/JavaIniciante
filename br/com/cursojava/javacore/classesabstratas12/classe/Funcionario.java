@@ -31,7 +31,7 @@ public abstract class Funcionario {
         return "Funcionario{" +
                 "nome='" + nome + '\'' +
                 ", cpf='" + cpf + '\'' +
-                ", salario= R$" + salario +
+                ", salario com comissão= R$" + salario +
                 '}';
     }
 
