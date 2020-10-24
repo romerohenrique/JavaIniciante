@@ -28,6 +28,7 @@ public class Produto implements Tributavel, Transportavel {
 
     @Override
     public void calcularFrete() {
+
         precoFrete = this.preco / this.peso * 0.1;
     }
 
