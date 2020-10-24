@@ -46,7 +46,9 @@ public class Cliente {
     public void setTipoPagamento(TipoPagamento tipoPagamento) {
         this.tipoPagamento = tipoPagamento;
     }
+
     public TipoPagamento getTipoPagamento() {
         return tipoPagamento;
     }
+
 }
