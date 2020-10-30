@@ -1,10 +1,7 @@
 package br.com.cursojava.javacore.exception15.checkedexception.test;
 
-import br.com.cursojava.javacore.exception15.checkedexception.Leitor2;
+import br.com.cursojava.javacore.exception15.checkedexception.classe.Leitor2;
 import br.com.cursojava.javacore.exception15.checkedexception.classe.Leitor1;
-
-import javax.security.auth.login.AccountLockedException;
-import java.io.*;
 
 public class TryWithResourceTest {
     public static void main(String[] args) {
