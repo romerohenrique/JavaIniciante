@@ -1,4 +1,4 @@
-package br.com.cursojava.javacore.assertiva;
+package br.com.cursojava.javacore.assertiva16;
 
 public class AcertivaTest {
     public static void main(String[] args) {
