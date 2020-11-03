@@ -20,8 +20,21 @@ public class StringTest {
 
         // Dentro da classe String há um método concat
 
-        String n = "Joaquim ";
+        String n ="Paulo";
         n = n.concat("Feitosa");
         System.out.println(n);
+
+        System.out.println("___________________________________________________");
+        //métodos mais utilizados da classe String
+
+        String test ="Paulo";
+        System.out.println(test.equals(n));// compara uma String com a outra.
+        System.out.println(test.toUpperCase());// tornar tudo em letras maiúsculas
+        System.out.println(test.toLowerCase());// tornar tudo letras minusculas
+        System.out.println(test.length());// tamaho da String
+        System.out.println(test.charAt(2));// busca a letra da posição da String
+        System.out.println(test.substring(0, 4));// pega posição da letra até segundo ponto ou até final
+        System.out.println(test.trim()); // tira espaço da String
+
     }
 }
