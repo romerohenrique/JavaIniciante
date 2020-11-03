@@ -18,5 +18,9 @@ public class StringBuilderTest {
         //deletando uma string do passando o pponto de inicio e fim
         sb.delete(3,6);
         System.out.println(sb);
+        //inverte as Strings
+        sb.reverse();
+        System.out.println(sb);
+
     }
 }
