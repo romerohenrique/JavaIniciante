@@ -12,10 +12,10 @@ public class SimpleDateFormatTest {
         Calendar c = Calendar.getInstance();
 
         //Dentro da String, separa-se o que for citação por aspas simples "'citações'";
-        String mascara = "'Goiânia,' EEE',' d' de' MMMM' de' yyyy HH:mm";
+        String customDate = "'Goiânia,' EEE',' d' de' MMMM' de' yyyy HH:mm";
 
-        SimpleDateFormat formatador = new SimpleDateFormat(mascara);
-        System.out.println(formatador.format(c.getTime()));
+        SimpleDateFormat sdf = new SimpleDateFormat(customDate);
+        System.out.println(sdf.format(c.getTime()));
 
     }
 }
