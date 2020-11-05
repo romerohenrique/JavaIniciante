@@ -30,7 +30,7 @@ public class NumberFormatTest {
         //pega todas as frações
         System.out.println(nf2.getMaximumFractionDigits());
 
-        //pega o numero máximo da fração
+        //pega o numero maior da fração arrendondando para cima
         nf2.setMaximumFractionDigits(1);
         System.out.println(nf2.format(numero));
 
