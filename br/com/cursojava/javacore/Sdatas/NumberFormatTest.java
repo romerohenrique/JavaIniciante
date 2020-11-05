@@ -5,7 +5,7 @@ import java.text.ParseException;
 import java.util.Locale;
 
 /**
- * Number Format: formatação de núemros
+ * Number Format: formatação de números
  */
 
 public class NumberFormatTest {
