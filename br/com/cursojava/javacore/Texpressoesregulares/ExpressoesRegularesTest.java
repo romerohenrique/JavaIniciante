@@ -21,7 +21,8 @@ import java.util.regex.Pattern;
  * () condiçoes;
  * | um ou outro;
  * $ fim de linha;
- * . coringa ex: 1.3 == 123 133 1#3 (pode ser substituído).
+ * . coringa ex: 1.3 == 123 133 1#3 (pode ser substituído);
+ * ^ caractere de negação. Quando não quer determinados dígitos ex: [^abc].
  */
 
 public class ExpressoesRegularesTest {
@@ -33,8 +34,11 @@ public class ExpressoesRegularesTest {
 //        String regex = "([a-zA-Z0-9\\._-])+@([a-z\\w])+(\\.+([a-z0-9]+))+";
 //        String texto = "bola12_br@gmail.com pereira@hotmail.gov.br 3m@grupuforte.co.com.br";
         //encontrar datas
-        String regex = "\\d{1,2}/\\d{1,2}/\\d{2,4}";
-        String texto = "12/12/2012 2/3/20 1/12/2020";
+//        String regex = "\\d{1,2}/\\d{1,2}/\\d{2,4}";//data DD/MM/YYYY
+//        String texto = "12/12/2012 2/3/20 1/12/2020";
+        // procurando por arquivos de projeto
+        String regex = "proj[^\\,]*";
+        String texto = "proj.txt, proj.jpg, proj.java, projeto.class, proj.xlx";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(texto);
 
