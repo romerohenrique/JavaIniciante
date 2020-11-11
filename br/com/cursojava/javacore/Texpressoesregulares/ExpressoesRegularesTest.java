@@ -11,13 +11,23 @@ import java.util.regex.Pattern;
  * \\s = espaço em branco \t , \n , \f , \r ;
  * \\S = caractere que não é branco;
  * \\w = caractere de palavras a-z A-Z , digitos e _ (underline);
- * \\W = tudo o que não for caracter de palavra.
+ * \\W = tudo o que não for caracter de palavra;
+ *  [] = bloco para busca;
+ *  metadados
+ *  ? zero ou uma;
+ *  * zero ou mais;
+ *  + uma ou mais;
+ *  {n,m} de a n até m;
+ *  () condiçoes;
+ *  | um ou outro;
+ *  $ fim de linha
  */
 
 public class ExpressoesRegularesTest {
     public static void main(String[] args) {
-        String regex = "\\W";
-        String texto = "aprendendo*&Java7 diariamente";
+        // encontrar hexadecimal
+        String regex = "0[xX]([0-9a-fA-F])+(\\s|$)";
+        String texto = "12 0x 0X 0x01FFABC 0x10G 0x1";
 
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(texto);
@@ -27,7 +37,7 @@ public class ExpressoesRegularesTest {
         System.out.println("Expressão: " + matcher.pattern());
         System.out.println("posições encontradas");
         while (matcher.find()) {
-            System.out.print(matcher.start() + " ");
+            System.out.println(matcher.start() + " "+matcher.group());
         }
     }
 }
