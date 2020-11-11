@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
  * \\w = caractere de palavras a-z A-Z , digitos e _ (underline);
  * \\W = tudo o que não for caracter de palavra;
  *  [] = bloco para busca;
- *  metadados
+ *  codificadores:
  *  ? zero ou uma;
  *  * zero ou mais;
  *  + uma ou mais;
