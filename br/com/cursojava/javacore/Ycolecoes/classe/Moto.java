@@ -28,6 +28,10 @@ public class Moto {
         return chassis != null && chassis.equals(outraMoto.getChassis());
     }
 
+    @Override
+    public int hashCode() {
+        return chassis != null ? chassis.hashCode() : 1;
+    }
 
     public String getMarca() {
         return marca;
