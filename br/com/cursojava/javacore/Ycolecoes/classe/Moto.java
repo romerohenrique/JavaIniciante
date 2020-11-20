@@ -11,6 +11,15 @@ public class Moto {
         this.chassis = chassis;
     }
 
+    @Override
+    public String toString() {
+        return "Moto{" +
+                "marca='" + marca + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", chassis='" + chassis + '\'' +
+                '}';
+    }
+
     /**
      * Regras para equals:
      * Reflexivo = x.equals(x) tem que ser true para tudo que for diferente de null;
