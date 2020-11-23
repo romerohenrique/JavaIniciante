@@ -19,20 +19,21 @@ public class NavigableTest {
         notaNavigableSet.add(nota3);
         notaNavigableSet.add(nota4);
 
-        for (Nota n : notaNavigableSet){
+        //lista em ordem decrescente método: descendingSet()
+        for (Nota n : notaNavigableSet.descendingSet()) {
             System.out.println(n);
         }
         System.out.println("--------------------");
         //tamnho do array
         System.out.println(notaNavigableSet.size());
         //Lower <
-        System.out.println("Menor nota:"+notaNavigableSet.lower(nota3));
+        System.out.println("Menor nota:" + notaNavigableSet.lower(nota3));
         //floor <=
-        System.out.println("Menor ou igual nota: "+notaNavigableSet.floor(nota4));
+        System.out.println("Menor ou igual nota: " + notaNavigableSet.floor(nota4));
         //celling >=
-        System.out.println("Maior ou igual nota: "+notaNavigableSet.ceiling(nota4));
+        System.out.println("Maior ou igual nota: " + notaNavigableSet.ceiling(nota4));
         //higher >
-        System.out.println("Maior nota: "+notaNavigableSet.higher(nota2));
+        System.out.println("Maior nota: " + notaNavigableSet.higher(nota2));
 
     }
 }
