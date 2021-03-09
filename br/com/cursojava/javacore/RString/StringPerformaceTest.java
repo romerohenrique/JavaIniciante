@@ -9,10 +9,11 @@ public class StringPerformaceTest {
     public static void main(String[] args) {
 
         long inicio = System.currentTimeMillis();
-        concatString(100000);
+        concatString(1000);
         long fim = System.currentTimeMillis();
         System.out.println("Tempo usando String: " + (fim - inicio) + " ms");
 
+        //utilizada para multi thread
         inicio = System.currentTimeMillis();
         concatStringBuffer(100000);
         fim = System.currentTimeMillis();
