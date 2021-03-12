@@ -13,7 +13,7 @@ public class SerealizacaoTest {
 
     private static void gravadorObjeto() {
         Turma turma = new Turma("Java Puro");
-        Aluno aluno = new Aluno(1L, "Jhon Travolta","112333");
+        Aluno aluno = new Aluno(1L, "Pedro ", "lk1234");
         aluno.setTurma(turma);
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("aluno.ser"))) {
             oos.writeObject(aluno);
