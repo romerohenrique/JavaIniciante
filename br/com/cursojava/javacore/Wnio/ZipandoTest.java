@@ -37,7 +37,7 @@ public class ZipandoTest {
                 zip.flush();
                 zip.closeEntry();
                 fileInputStream.close();
-            }
+             }
         } catch (IOException e) {
             e.printStackTrace();
         }
