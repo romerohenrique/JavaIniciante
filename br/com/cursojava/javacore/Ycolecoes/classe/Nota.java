@@ -64,7 +64,7 @@ public class Nota implements Comparable<Nota> {
 
     //método implementado da interface Comparable
     @Override
-    public int compareTo(Nota n) {
-        return this.nota.compareTo(n.nota);
+    public int compareTo(Nota newnota) {
+        return this.nota.compareTo(newnota.nota);
     }
 }

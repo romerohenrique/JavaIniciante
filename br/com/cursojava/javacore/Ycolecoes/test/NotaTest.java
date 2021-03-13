@@ -37,13 +37,16 @@ public class NotaTest {
         nota[1] = nota2;
         nota[2] = nota3;
         nota[3] = nota4;
+
         //ordenando as notas e ordenando pelo nome usando a interface Comparator
         Collections.sort(notas, new NotaNomeComparator());
-//        for (Nota nota : notas) {
-//            System.out.println(nota);
-//        }
+        for (Nota nome : notas) {
+            System.out.println(nome);
+        }
+
         //ordenando, usando a Classe Arrays para usar o método .sort
-        Arrays.sort(nota, new NotaNomeComparator());
+        System.out.println("--------------------------");
+        Arrays.sort(nota);
         for (Nota n : nota) {
             System.out.println(n);
         }

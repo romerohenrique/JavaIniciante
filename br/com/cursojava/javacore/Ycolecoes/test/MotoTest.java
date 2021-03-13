@@ -12,17 +12,17 @@ public class MotoTest {
         Moto moto3 = new Moto("Triumph", "Tiger 800", "98763");
         Moto moto4 = new Moto("Honda", "cbr 1100", "896745");
 
-        List<Moto> motos = new ArrayList<>();
-        motos.add(moto1);
-        motos.add(moto2);
-        motos.add(moto3);
-        motos.add(moto4);
-        for (Moto moto : motos) {
+        List<Moto> motosList = new ArrayList<>();
+        motosList.add(moto1);
+        motosList.add(moto2);
+        motosList.add(moto3);
+        motosList.add(moto4);
+        for (Moto moto : motosList) {
             System.out.println(moto);
         }
 
         //
-        Moto moto5 = new Moto("Kavasaki", "K1100", "123455");
-        System.out.println(motos.contains(moto5));
+        Moto moto5 = new Moto("Ktm", "K110", "1455");
+        System.out.println(motosList.contains(moto5));
     }
 }
