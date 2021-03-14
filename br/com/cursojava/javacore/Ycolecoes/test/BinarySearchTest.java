@@ -15,8 +15,14 @@ public class BinarySearchTest {
         number.add(5);
         number.add(3);
         number.add(8);
+        // regra: é necessário ordenar a Lista, caso encontre ele mostra a index, caso contrário
+        // segue uma regra: (-(ponto de inserção) -1)
         Collections.sort(number);
-        System.out.println(Collections.binarySearch(number, 2));
+        for (Integer n : number) {
+            System.out.println(n);
+        }
+        System.out.println(Collections.binarySearch(number, 6));
+        System.out.println("------------------------------------------------");
 
         List<Nota> notas = new ArrayList<>();
         Nota nota1 = new Nota("1234", "Rogerio", 9);
@@ -29,22 +35,22 @@ public class BinarySearchTest {
         notas.add(nota4);
 
         Collections.sort(notas, new NotaNomeComparator());
-        Nota nota5 = new Nota("899", "Henrique", 5);
+        Nota nota5 = new Nota("899", "Henrique", 3);
         for (Nota nota : notas) {
             System.out.println(nota);
         }
         System.out.println(Collections.binarySearch(notas, nota5, new NotaNomeComparator()));
+        System.out.println("--------------------------------------------");
+
         Integer[] arrayInterger = new Integer[4];
         arrayInterger[0] = 10;
         arrayInterger[1] = 0;
         arrayInterger[2] = 1;
         arrayInterger[3] = 2;
-        System.out.println("----------------------");
         Arrays.sort(arrayInterger);
         for (Integer i : arrayInterger) {
             System.out.println(i);
         }
-        System.out.println("----------------------");
         System.out.println(Arrays.binarySearch(arrayInterger, 4));
     }
 }
