@@ -30,7 +30,7 @@ public class ConversaoListEArrayTest {
         System.out.println(Arrays.toString(nomesArray2));
         // adicionando nome à lista sem alterar a origem da cópia
         System.out.println(nomes2);
-        nomes2.add(0, "xuxa");
+        nomes2.add(1, "nono");
         System.out.println("Incuído mais um nome: " + nomes2);
 
 
