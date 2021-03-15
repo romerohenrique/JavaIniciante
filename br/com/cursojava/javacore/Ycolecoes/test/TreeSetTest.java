@@ -4,6 +4,11 @@ import br.com.cursojava.javacore.Ycolecoes.classe.Nota;
 
 import java.util.NavigableSet;
 
+/**
+ * A Classe TreeSet implementa a interface NavigableSet, que
+ * evita duplicação, além de incluir vários métodos de ordenação e listagem.
+ */
+
 public class TreeSetTest {
     public static void main(String[] args) {
 
