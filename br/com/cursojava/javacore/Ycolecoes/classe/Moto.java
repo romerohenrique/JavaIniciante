@@ -4,6 +4,14 @@ public class Moto {
     private String marca;
     private String modelo;
     private String chassis;
+    private int qtd;
+
+    public Moto(String marca, String modelo, String chassis, int qtd) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.chassis = chassis;
+        this.qtd = qtd;
+    }
 
     public Moto(String marca, String modelo, String chassis) {
         this.marca = marca;
@@ -17,6 +25,7 @@ public class Moto {
                 "marca='" + marca + '\'' +
                 ", modelo='" + modelo + '\'' +
                 ", chassis='" + chassis + '\'' +
+                ", qtd=" + qtd +
                 '}';
     }
 
@@ -40,6 +49,14 @@ public class Moto {
     @Override
     public int hashCode() {
         return chassis != null ? chassis.hashCode() : 1;
+    }
+
+    public int getQtd() {
+        return qtd;
+    }
+
+    public void setQtd(int qtd) {
+        this.qtd = qtd;
     }
 
     public String getMarca() {
