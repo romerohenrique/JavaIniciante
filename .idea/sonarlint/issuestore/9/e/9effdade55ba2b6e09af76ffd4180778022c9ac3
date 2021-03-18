@@ -1,9 +1,0 @@
-
-k
-java:S1104"UMake matricula a static final constant or non-public and provide accessors if needed.(¾§Ð²
-f
-java:S1104"PMake nome a static final constant or non-public and provide accessors if needed.(µ©Ñ¸
-d
-java:S1104"NMake rg a static final constant or non-public and provide accessors if needed.(Ù­Ò›
-e
-java:S1104"OMake cpf a static final constant or non-public and provide accessors if needed.(•Å÷Ô

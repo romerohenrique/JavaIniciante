@@ -3,6 +3,7 @@ package br.com.cursojava.javacore.Ycolecoes.test;
 import br.com.cursojava.javacore.Ycolecoes.classe.Nota;
 
 import java.util.NavigableSet;
+import java.util.TreeSet;
 
 /**
  * A Classe TreeSet implementa a interface NavigableSet, que
@@ -17,7 +18,7 @@ public class TreeSetTest {
         Nota nota3 = new Nota("5678", "Clarice", 8);
         Nota nota4 = new Nota("3346", "Ana Paula ", 5);
 
-        NavigableSet<Nota> notaNavigableSet = new TreeSet<>();
+        NavigableSet<Nota> notaNavigableSet =new TreeSet<>();
         notaNavigableSet.add(nota1);
         notaNavigableSet.add(nota2);
         notaNavigableSet.add(nota3);
