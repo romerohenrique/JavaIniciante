@@ -1,4 +1,4 @@
-package br.com.cursojava.javacore.ZZAgeneric;
+package br.com.cursojava.javacore.ZZAgenerics.test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
  * Type erasure
  * a partir da versão 5, o Java tem retrocompatibilidade com versões anteriores
  */
-public class GenericTest {
+public class GenericsTest {
     public static void main(String[] args) {
         List<String> lista = new ArrayList<>();
         lista.add("maçã");
