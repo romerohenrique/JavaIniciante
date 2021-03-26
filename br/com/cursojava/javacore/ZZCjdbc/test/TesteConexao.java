@@ -1,4 +1,4 @@
-package br.com.cursojava.javacore.ZZCjdbc.com.test;
+package br.com.cursojava.javacore.ZZCjdbc.test;
 
 import br.com.cursojava.javacore.ZZCjdbc.com.ConexaoFactory;
 
