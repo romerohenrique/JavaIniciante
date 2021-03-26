@@ -25,8 +25,8 @@ public class ClassesAnonimasTest {
         a.andar();
 
         List<Moto> motoList = new ArrayList<>();
-        motoList.add(new Moto("crf 400"));
-        motoList.add(new Moto("Tiger 800"));
+        motoList.add(new Moto("honda","crf 400"));
+        motoList.add(new Moto("Triumph","Tiger 800"));
         Collections.sort(motoList, new Comparator<Moto>() {
             @Override
             public int compare(Moto o1, Moto o2) {
