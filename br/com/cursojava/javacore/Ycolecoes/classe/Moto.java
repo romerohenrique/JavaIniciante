@@ -19,7 +19,8 @@ public class Moto {
         this.chassis = chassis;
     }
 
-    public Moto(String modelo) {
+    public Moto(String marca, String modelo) {
+        this.marca = marca;
         this.modelo = modelo;
     }
 
