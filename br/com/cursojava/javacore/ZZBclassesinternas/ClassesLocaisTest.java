@@ -1,4 +1,4 @@
-package br.com.cursojava.javacore.ZZBclassesinternas.test;
+package br.com.cursojava.javacore.ZZBclassesinternas;
 
 public class ClassesLocaisTest {
     //classes interna dentro de métodos

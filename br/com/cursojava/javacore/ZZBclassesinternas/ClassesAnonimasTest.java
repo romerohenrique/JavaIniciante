@@ -1,4 +1,4 @@
-package br.com.cursojava.javacore.ZZBclassesinternas.test;
+package br.com.cursojava.javacore.ZZBclassesinternas;
 
 import br.com.cursojava.javacore.Ycolecoes.classe.Moto;
 
