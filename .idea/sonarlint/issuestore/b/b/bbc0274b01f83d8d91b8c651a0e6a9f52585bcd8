@@ -1,0 +1,6 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Æ¾Á»ùÿÿÿÿ
+.
+java:S1700"Rename field "nota"(ñáÿÛùÿÿÿÿ
+M
+java:S1117"7Rename "nota" which hides the field declared at line 8.(££ž¾
