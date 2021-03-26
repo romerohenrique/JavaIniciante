@@ -19,6 +19,10 @@ public class Moto {
         this.chassis = chassis;
     }
 
+    public Moto(String modelo) {
+        this.modelo = modelo;
+    }
+
     @Override
     public String toString() {
         return "Moto{" +
