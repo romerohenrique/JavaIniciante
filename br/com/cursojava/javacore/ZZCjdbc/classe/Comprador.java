@@ -23,6 +23,15 @@ public class Comprador {
     }
 
     @Override
+    public String toString() {
+        return "Comprador{" +
+                "id=" + id +
+                ", cpf='" + cpf + '\'' +
+                ", nome='" + nome + '\'' +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
