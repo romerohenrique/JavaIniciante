@@ -3,10 +3,7 @@ package br.com.cursojava.javacore.ZZCjdbc.db;
 import br.com.cursojava.javacore.ZZCjdbc.classe.Comprador;
 import br.com.cursojava.javacore.ZZCjdbc.com.ConexaoFactory;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -92,5 +89,55 @@ public class CompradorDB {
             e.printStackTrace();
         }
         return null;
+    }
+
+    // saber quantas tabelas e demias dados do BD
+    public static void selectMetaData() {
+        String sql = "SELECT id, cpf, nome FROM agencia.comprador;";
+        Connection conn = ConexaoFactory.getConexao();
+        try {
+            Statement smt = conn.createStatement();
+            ResultSet rs = smt.executeQuery(sql);
+            ResultSetMetaData rsmd = rs.getMetaData();
+            rs.next();
+            int qtdColunas = rsmd.getColumnCount();
+            System.out.println("Quantidade de Colunas: " + qtdColunas);
+            for (int i = 1; i <= qtdColunas; i++) {
+                System.out.println("Tabela: " + rsmd.getTableName(i));
+                System.out.println("Nome Coluna: " + rsmd.getColumnName(i));
+                System.out.println("Tamanho da Coluna: " + rsmd.getColumnDisplaySize(i));
+            }
+            ConexaoFactory.close(conn, smt, rs);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void checkDriverStatus() {
+        Connection conn = ConexaoFactory.getConexao();
+        try {
+            DatabaseMetaData dbmd = conn.getMetaData();
+            if (dbmd.supportsResultSetType(ResultSet.TYPE_FORWARD_ONLY)) {
+                System.out.println("Suporta TYPE_FORWARD_ONLY");
+                if (dbmd.supportsResultSetConcurrency(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE)) {
+                    System.out.println("e também suporta CONCUR_UPDATABLE");
+                }
+            }
+            if (dbmd.supportsResultSetType(ResultSet.TYPE_SCROLL_INSENSITIVE)) {
+                System.out.println("Suporta TYPE_SCROLL_INSENSITIVE");
+                if (dbmd.supportsResultSetConcurrency(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE)) {
+                    System.out.println("e também suporta CONCUR_UPDATABLE");
+                }
+            }
+            if (dbmd.supportsResultSetType(ResultSet.TYPE_SCROLL_SENSITIVE)) {
+                System.out.println("Suporta TYPE_SCROLL_SENSITIVE");
+                if (dbmd.supportsResultSetConcurrency(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE)) {
+                    System.out.println("e também suporta CONCUR_UPDATABLE");
+                }
+            }
+            ConexaoFactory.close(conn);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
