@@ -17,8 +17,9 @@ public class TesteConexao {
 //        CompradorDB.selectMetaData();
 //        CompradorDB.checkDriverStatus();
 //        CompradorDB.testTypeScroll();
-        //CompradorDB.upDateNamesLowerCase();
-        System.out.println(CompradorDB.searchByNamePreparedStatement("c"));
+//        CompradorDB.upDateNamesLowerCase();
+//        System.out.println(CompradorDB.searchByNamePreparedStatement("c"));
+        CompradorDB.updatePreparedStatent(new Comprador(1, "222.675.998-00", "Zé Prepared Statement"));
     }
 
     public static void inserir() {
