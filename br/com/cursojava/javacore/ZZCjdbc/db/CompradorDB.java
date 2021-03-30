@@ -205,4 +205,26 @@ public class CompradorDB {
         }
     }
 
+    //evita que o usuário acesse dados que não deve ser mostrados
+    public static List<Comprador> searchByNamePreparedStatement(String nome) {
+        String sql = "SELECT id, cpf, nome FROM agencia.comprador where nome LIKE ?;";
+        Connection conn = ConexaoFactory.getConexao();
+        List<Comprador> compradorList = new ArrayList<>();
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, "%" + nome+"%");
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                compradorList.add(new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome")));
+            }
+
+            ConexaoFactory.close(conn, ps, rs);
+            return compradorList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }
