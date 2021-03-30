@@ -27,3 +27,9 @@ u
 Ebr/com/cursojava/javacore/ZZBclassesinternas/ClassesInternasTest.java,b\8\b87e2c87c97f5539956cddac25cae8f0723e8baf
 s
 Cbr/com/cursojava/javacore/ZZBclassesinternas/ClassesLocaisTest.java,f\d\fdde2e5289b08a3f27cae10cd9205a36435381f3
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+g
+7br/com/cursojava/javacore/ZZCjdbc/classe/Comprador.java,6\d\6d4772f9603c84387d3ef3cb9acffa67808c50f5
+e
+5br/com/cursojava/javacore/ZZCjdbc/db/CompradorDB.java,b\5\b5a22c1121b010fffd66a3819dfe22d8f4a942de
