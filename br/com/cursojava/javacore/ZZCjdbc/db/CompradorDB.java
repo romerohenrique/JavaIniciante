@@ -169,4 +169,40 @@ public class CompradorDB {
         }
     }
 
+    public static void upDateNamesLowerCase() {
+        String sql = "SELECT id, cpf, nome FROM agencia.comprador;";
+        Connection conn = ConexaoFactory.getConexao();
+        try {
+            DatabaseMetaData dbmd = conn.getMetaData();
+
+
+            Statement smt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = smt.executeQuery(sql);
+            System.out.println("Permete atualiza? " + dbmd.updatesAreDetected(ResultSet.TYPE_SCROLL_INSENSITIVE));
+            System.out.println("Permete inserir? " + dbmd.insertsAreDetected(ResultSet.TYPE_SCROLL_INSENSITIVE));
+            System.out.println("Permete deletar? " + dbmd.deletesAreDetected(ResultSet.TYPE_SCROLL_INSENSITIVE));
+            while (rs.next()) {
+                rs.updateString("nome", rs.getString("nome").toLowerCase());
+                rs.updateRow();
+            }
+            rs.beforeFirst();
+            while (rs.next()) {
+                System.out.println(rs.getString("nome"));
+            }
+            rs.absolute(2);
+            String nome = rs.getString("nome");
+            rs.moveToInsertRow();
+            rs.updateString("nome", nome.toUpperCase());
+            rs.updateString("cpf", "990.887.665-43");
+            rs.insertRow();
+            rs.moveToCurrentRow();
+            System.out.println(rs.getString("nome" + " linha " + rs.getRow()));
+            rs.absolute(6);
+            rs.deleteRow();
+            ConexaoFactory.close(conn, smt, rs);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
