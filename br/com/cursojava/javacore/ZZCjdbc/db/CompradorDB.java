@@ -212,7 +212,7 @@ public class CompradorDB {
         List<Comprador> compradorList = new ArrayList<>();
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, "%" + nome+"%");
+            ps.setString(1, "%" + nome + "%");
 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -225,6 +225,26 @@ public class CompradorDB {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static void updatePreparedStatent(Comprador comprador) {
+        if (comprador == null || comprador.getId() == null) {
+            System.out.println("Não há registros no banco de dados");
+            return;
+        }
+        String sql = "UPDATE `agencia`.`comprador` SET `cpf` = ?, `nome` = ? WHERE `id` = ?";
+        Connection conn = ConexaoFactory.getConexao();
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, comprador.getCpf());
+            ps.setString(2, comprador.getNome());
+            ps.setInt(3, comprador.getId());
+            ps.executeUpdate();
+            ConexaoFactory.close(conn, ps);
+            System.out.println("Registro atualizado com sucesso");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }
