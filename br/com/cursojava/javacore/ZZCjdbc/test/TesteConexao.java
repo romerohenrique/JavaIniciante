@@ -1,12 +1,14 @@
 package br.com.cursojava.javacore.ZZCjdbc.test;
 
 import br.com.cursojava.javacore.ZZCjdbc.classe.Comprador;
+import br.com.cursojava.javacore.ZZCjdbc.com.ConexaoFactory;
 import br.com.cursojava.javacore.ZZCjdbc.db.CompradorDB;
 
 import java.util.List;
 
 public class TesteConexao {
     public static void main(String[] args) {
+
 //        inserir();
 //        deletar();
 //        update();
@@ -19,13 +21,16 @@ public class TesteConexao {
 //        CompradorDB.testTypeScroll();
 //        CompradorDB.upDateNamesLowerCase();
 //        System.out.println(CompradorDB.searchByNamePreparedStatement("c"));
-        CompradorDB.updatePreparedStatent(new Comprador(1, "222.675.998-00", "Zé Prepared Statement"));
+//        CompradorDB.updatePreparedStatent(new Comprador(1, "222.675.998-00", "Zé Prepared Statement"));
+//        System.out.println(CompradorDB.searchByNameRowSet("c"));
+        CompradorDB.updateRowSet(new Comprador(1, "222.675.998-00", "Zé RowSet"));
     }
 
     public static void inserir() {
-        Comprador comprador = new Comprador("443.987.097-10", "Clarice Almeida");
+        Comprador comprador = new Comprador("433.987.099-11", "João Pedro de Lara");
         CompradorDB compradorDB = new CompradorDB();
         compradorDB.save(comprador);
+
 
     }
 

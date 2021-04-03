@@ -1,5 +1,8 @@
 package br.com.cursojava.javacore.ZZCjdbc.com;
 
+import javax.sql.RowSet;
+import javax.sql.rowset.JdbcRowSet;
+import javax.sql.rowset.RowSetProvider;
 import java.sql.*;
 
 public class ConexaoFactory {
@@ -13,6 +16,31 @@ public class ConexaoFactory {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static JdbcRowSet getRowSetConnection() {
+        String url = "jdbc:mysql://localhost:3306/agencia";
+        String user = "root";
+        String password = "";
+        try {
+            JdbcRowSet jdbcRowSet = RowSetProvider.newFactory().createJdbcRowSet();
+            jdbcRowSet.setUrl(url);
+            jdbcRowSet.setUsername(user);
+            jdbcRowSet.setPassword(password);
+            return jdbcRowSet;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static void close(JdbcRowSet jrs) {
+        try {
+            if (jrs != null)
+                jrs.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void close(Connection connection) {
@@ -43,5 +71,6 @@ public class ConexaoFactory {
             e.printStackTrace();
         }
     }
+
 
 }

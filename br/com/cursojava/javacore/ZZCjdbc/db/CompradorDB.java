@@ -3,6 +3,8 @@ package br.com.cursojava.javacore.ZZCjdbc.db;
 import br.com.cursojava.javacore.ZZCjdbc.classe.Comprador;
 import br.com.cursojava.javacore.ZZCjdbc.com.ConexaoFactory;
 
+import javax.sql.rowset.JdbcRowSet;
+import javax.sql.rowset.RowSetFactory;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -247,4 +249,42 @@ public class CompradorDB {
         }
     }
 
+    public static List<Comprador> searchByNameRowSet(String nome) {
+        String sql = "SELECT id, cpf, nome FROM agencia.comprador where nome LIKE ?;";
+        JdbcRowSet jrs = ConexaoFactory.getRowSetConnection();
+        List<Comprador> compradorList = new ArrayList<>();
+        try {
+            jrs.setCommand(sql);
+            jrs.setString(1, "%" + nome + "%");
+            jrs.execute();
+            while (jrs.next()) {
+                compradorList.add(new Comprador(jrs.getInt("id"), jrs.getString("cpf"), jrs.getString("nome")));
+            }
+            ConexaoFactory.close(jrs);
+            return compradorList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static void updateRowSet(Comprador comprador) {
+        if (comprador == null || comprador.getId() == null) {
+            System.out.println("Não há registros no banco de dados");
+            return;
+        }
+        String sql = "UPDATE `agencia`.`comprador` SET `cpf` = ?, `nome` = ? WHERE `id` = ?";
+        JdbcRowSet jrs = ConexaoFactory.getRowSetConnection();
+        try {
+            jrs.setCommand(sql);
+            jrs.setString(1, comprador.getCpf());
+            jrs.setString(2, comprador.getNome());
+            jrs.setInt(3, comprador.getId());
+            jrs.execute();
+            ConexaoFactory.close(jrs);
+            System.out.println("Registro atualizado com sucesso");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
