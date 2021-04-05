@@ -23,7 +23,9 @@ public class TesteConexao {
 //        System.out.println(CompradorDB.searchByNamePreparedStatement("c"));
 //        CompradorDB.updatePreparedStatent(new Comprador(1, "222.675.998-00", "Zé Prepared Statement"));
 //        System.out.println(CompradorDB.searchByNameRowSet("c"));
-        CompradorDB.updateRowSet(new Comprador(1, "222.675.998-00", "Zé RowSet"));
+//        CompradorDB.updateRowSet(new Comprador(1, "222.675.998-00", "Zé Prepared Statement"));
+//          CompradorDB.updateRowSetCached(new Comprador(1, "222.675.998-00", "Zé Prepared Statement"));
+        CompradorDB.saveTransaction();
     }
 
     public static void inserir() {

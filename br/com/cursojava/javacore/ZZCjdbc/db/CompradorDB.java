@@ -1,10 +1,11 @@
 package br.com.cursojava.javacore.ZZCjdbc.db;
 
 import br.com.cursojava.javacore.ZZCjdbc.classe.Comprador;
+import br.com.cursojava.javacore.ZZCjdbc.classe.MyRowSetListener;
 import br.com.cursojava.javacore.ZZCjdbc.com.ConexaoFactory;
 
+import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.JdbcRowSet;
-import javax.sql.rowset.RowSetFactory;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,35 @@ public class CompradorDB {
         } catch (SQLException e) {
             ;
             e.printStackTrace();
+        }
+    }
+
+    public static void saveTransaction() {
+        String sql1 = "INSERT INTO `agencia`.`comprador` (`cpf`, `nome`) VALUES ('Teste1', 'Teste1')";
+        String sql2 = "INSERT INTO `agencia`.`comprador` (`cpf`, `nome`) VALUES ('Teste2', 'Teste2')";
+        String sql3 = "INSERT INTO `agencia`.`comprador` (`cpf`, `nome`) VALUES ('Teste3', 'Teste3')";
+        Connection conn = ConexaoFactory.getConexao();
+        Savepoint savepoint = null;
+        try {
+            conn.setAutoCommit(false);
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(sql1);
+            savepoint = conn.setSavepoint();
+            stmt.executeUpdate(sql2);
+            if (true)
+                throw new SQLException();
+            stmt.executeUpdate(sql3);
+            conn.commit();
+            ConexaoFactory.close(conn, stmt);
+            System.out.println("Registro criado com sucesso");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            try {
+                conn.rollback(savepoint);
+                conn.commit();
+            } catch (SQLException exception) {
+                exception.printStackTrace();
+            }
         }
     }
 
@@ -252,6 +282,7 @@ public class CompradorDB {
     public static List<Comprador> searchByNameRowSet(String nome) {
         String sql = "SELECT id, cpf, nome FROM agencia.comprador where nome LIKE ?;";
         JdbcRowSet jrs = ConexaoFactory.getRowSetConnection();
+        jrs.addRowSetListener(new MyRowSetListener());
         List<Comprador> compradorList = new ArrayList<>();
         try {
             jrs.setCommand(sql);
@@ -273,17 +304,41 @@ public class CompradorDB {
             System.out.println("Não há registros no banco de dados");
             return;
         }
-        String sql = "UPDATE `agencia`.`comprador` SET `cpf` = ?, `nome` = ? WHERE `id` = ?";
+        String sql = "SELECT * FROM comprador WHERE id = ?";
         JdbcRowSet jrs = ConexaoFactory.getRowSetConnection();
+        jrs.addRowSetListener(new MyRowSetListener());
         try {
             jrs.setCommand(sql);
-            jrs.setString(1, comprador.getCpf());
-            jrs.setString(2, comprador.getNome());
-            jrs.setInt(3, comprador.getId());
+            jrs.setInt(1, comprador.getId());
             jrs.execute();
+            jrs.next();
+            jrs.updateString("nome", "James Runner");
+            jrs.updateRow();
             ConexaoFactory.close(jrs);
             System.out.println("Registro atualizado com sucesso");
         } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateRowSetCached(Comprador comprador) {
+        if (comprador == null || comprador.getId() == null) {
+            System.out.println("Não há registros no banco de dados");
+            return;
+        }
+        String sql = "SELECT * FROM comprador WHERE id = ?";
+        CachedRowSet crs = ConexaoFactory.getRowSetConnectionCached();
+        try {
+            crs.setCommand(sql);
+            crs.setInt(1, comprador.getId());
+            crs.execute();
+            crs.next();
+            crs.updateString("nome", "Pedro hugo    ");
+            crs.updateRow();
+            Thread.sleep(8000);
+            crs.acceptChanges();
+            System.out.println("Registro atualizado com sucesso");
+        } catch (SQLException | InterruptedException e) {
             e.printStackTrace();
         }
     }
