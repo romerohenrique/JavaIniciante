@@ -1,0 +1,97 @@
+package br.com.cursojava.javacore.ZZCjdbc.db;
+
+import br.com.cursojava.javacore.ZZCjdbc.classe.Comprador;
+import br.com.cursojava.javacore.ZZCjdbc.com.ConexaoFactory;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class CompradorDAO {
+    public static void save(Comprador comprador) {
+        String sql = "INSERT INTO `agencia`.`comprador` (`cpf`, `nome`) VALUES (? , ?)";
+
+        try (Connection conn = ConexaoFactory.getConexao();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, comprador.getCpf());
+            ps.setString(2, comprador.getNome());
+            ps.executeUpdate();
+            System.out.println("Registro criado com sucesso");
+        } catch (SQLException e) {
+            ;
+            e.printStackTrace();
+        }
+    }
+
+    public static void delete(Comprador comprador) {
+        if (comprador == null || comprador.getId() == null) {
+            System.out.println("Não há registros no banco de dados");
+            return;
+        }
+        String sql = "DELETE FROM `agencia`.`comprador` WHERE (`id` = ?);";
+
+        try (Connection conn = ConexaoFactory.getConexao();
+             PreparedStatement ps = conn.prepareStatement(sql);) {
+            ps.setInt(1, comprador.getId());
+            ps.executeUpdate();
+            System.out.println("Registro deletado com sucesso");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void update(Comprador comprador) {
+        if (comprador == null || comprador.getId() == null) {
+            System.out.println("Não há registros no banco de dados");
+            return;
+        }
+        String sql = "UPDATE `agencia`.`comprador` SET `cpf` = ?, `nome` = ?  WHERE `id` = ?";
+
+        try (Connection conn = ConexaoFactory.getConexao();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, comprador.getCpf());
+            ps.setString(2, comprador.getNome());
+            ps.setInt(1, comprador.getId());
+            ps.executeUpdate();
+            System.out.println("Registro atualizado com sucesso");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static List<Comprador> selectAll() {
+        String sql = "SELECT id, cpf, nome FROM agencia.comprador;";
+        ;
+        List<Comprador> compradorList = new ArrayList<>();
+        try (Connection conn = ConexaoFactory.getConexao();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery();) {
+            while (rs.next()) {
+                compradorList.add(new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome")));
+            }
+            return compradorList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static List<Comprador> searchByName(String nome) {
+        String sql = "SELECT id, cpf, nome FROM agencia.comprador where nome LIKE ?";
+        List<Comprador> compradorList = new ArrayList<>();
+
+        try (Connection conn = ConexaoFactory.getConexao();
+             PreparedStatement ps = conn.prepareStatement(sql);) {
+            ps.setString(1, "%" + nome + "%");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                compradorList.add(new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome")));
+            }
+            ConexaoFactory.close(conn, ps, rs);
+            return compradorList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+}
