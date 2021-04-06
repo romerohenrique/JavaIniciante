@@ -28,7 +28,7 @@ public class CompradorDAO {
             System.out.println("Não há registros no banco de dados");
             return;
         }
-        String sql = "DELETE FROM `agencia`.`comprador` WHERE (`id` = ?);";
+        String sql = "DELETE FROM `agencia`.`comprador` WHERE `id` = ?;";
 
         try (Connection conn = ConexaoFactory.getConexao();
              PreparedStatement ps = conn.prepareStatement(sql);) {
@@ -45,13 +45,12 @@ public class CompradorDAO {
             System.out.println("Não há registros no banco de dados");
             return;
         }
-        String sql = "UPDATE `agencia`.`comprador` SET `cpf` = ?, `nome` = ?  WHERE `id` = ?";
-
+        String sql = "UPDATE `agencia`.`comprador` SET `cpf` = ?, `nome` = ? WHERE `id` = ?";
         try (Connection conn = ConexaoFactory.getConexao();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, comprador.getCpf());
             ps.setString(2, comprador.getNome());
-            ps.setInt(1, comprador.getId());
+            ps.setInt(3, comprador.getId());
             ps.executeUpdate();
             System.out.println("Registro atualizado com sucesso");
         } catch (SQLException e) {
@@ -79,7 +78,6 @@ public class CompradorDAO {
     public static List<Comprador> searchByName(String nome) {
         String sql = "SELECT id, cpf, nome FROM agencia.comprador where nome LIKE ?";
         List<Comprador> compradorList = new ArrayList<>();
-
         try (Connection conn = ConexaoFactory.getConexao();
              PreparedStatement ps = conn.prepareStatement(sql);) {
             ps.setString(1, "%" + nome + "%");
