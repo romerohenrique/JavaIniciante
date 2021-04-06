@@ -25,7 +25,7 @@ public class CompradorDB {
         }
     }
 
-    public static void saveTransaction() {
+    public static void saveTransaction() throws SQLException {
         String sql1 = "INSERT INTO `agencia`.`comprador` (`cpf`, `nome`) VALUES ('Teste1', 'Teste1')";
         String sql2 = "INSERT INTO `agencia`.`comprador` (`cpf`, `nome`) VALUES ('Teste2', 'Teste2')";
         String sql3 = "INSERT INTO `agencia`.`comprador` (`cpf`, `nome`) VALUES ('Teste3', 'Teste3')";
@@ -45,12 +45,8 @@ public class CompradorDB {
             System.out.println("Registro criado com sucesso");
         } catch (SQLException e) {
             e.printStackTrace();
-            try {
-                conn.rollback(savepoint);
-                conn.commit();
-            } catch (SQLException exception) {
-                exception.printStackTrace();
-            }
+            conn.rollback(savepoint);
+            conn.commit();
         }
     }
 

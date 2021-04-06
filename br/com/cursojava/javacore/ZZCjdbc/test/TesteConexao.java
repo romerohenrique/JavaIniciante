@@ -4,6 +4,7 @@ import br.com.cursojava.javacore.ZZCjdbc.classe.Comprador;
 import br.com.cursojava.javacore.ZZCjdbc.com.ConexaoFactory;
 import br.com.cursojava.javacore.ZZCjdbc.db.CompradorDB;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class TesteConexao {
@@ -24,8 +25,12 @@ public class TesteConexao {
 //        CompradorDB.updatePreparedStatent(new Comprador(1, "222.675.998-00", "Zé Prepared Statement"));
 //        System.out.println(CompradorDB.searchByNameRowSet("c"));
 //        CompradorDB.updateRowSet(new Comprador(1, "222.675.998-00", "Zé Prepared Statement"));
-//          CompradorDB.updateRowSetCached(new Comprador(1, "222.675.998-00", "Zé Prepared Statement"));
-        CompradorDB.saveTransaction();
+//        CompradorDB.updateRowSetCached(new Comprador(1, "222.675.998-00", "Zé Prepared Statement"));
+        try {
+            CompradorDB.saveTransaction();
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
     }
 
     public static void inserir() {
