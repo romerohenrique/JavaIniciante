@@ -4,7 +4,7 @@ package br.com.cursojava.javacore.ZZCjdbc.test;
 import java.util.Scanner;
 
 public class TestCRUD {
-    private static Scanner teclado = new Scanner(System.in);
+    public static Scanner teclado = new Scanner(System.in);
 
     public static void main(String[] args) {
 

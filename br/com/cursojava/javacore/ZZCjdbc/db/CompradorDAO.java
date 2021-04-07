@@ -60,7 +60,6 @@ public class CompradorDAO {
 
     public static List<Comprador> selectAll() {
         String sql = "SELECT id, cpf, nome FROM agencia.comprador;";
-        ;
         List<Comprador> compradorList = new ArrayList<>();
         try (Connection conn = ConexaoFactory.getConexao();
              PreparedStatement ps = conn.prepareStatement(sql);
