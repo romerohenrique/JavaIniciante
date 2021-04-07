@@ -67,7 +67,7 @@ public class CarroCRUD {
         List<Carro> carroList = CarroDAO.selectAll();
         for (int i = 0; i < carroList.size(); i++) {
             Carro c = carroList.get(i);
-            System.out.println("[" + i + "] " + c.getNome() + " " + c.getPlaca() + c.getComprador().getNome());
+            System.out.println("[" + i + "] " + c.getNome() + " " + c.getPlaca() + ", Proprietário:  " + c.getComprador().getNome());
         }
         return carroList;
     }
@@ -76,7 +76,7 @@ public class CarroCRUD {
         List<Carro> carroList = CarroDAO.searchByName(nome);
         for (int i = 0; i < carroList.size(); i++) {
             Carro c = carroList.get(i);
-            System.out.println("[" + i + "] " + c.getNome() + " " + c.getPlaca() + c.getComprador().getNome());
+            System.out.println("[" + i + "] " + c.getNome() + " " + c.getPlaca() + ", Proprietário:  " + c.getComprador().getNome());
         }
     }
 

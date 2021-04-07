@@ -93,13 +93,13 @@ public class CompradorDAO {
     }
 
     public static Comprador searchById(Integer id) {
-        String sql = "SELECT id, cpf, nome FROM agencia.comprador where id= ?";
+        String sql = "SELECT id, cpf, nome FROM agencia.comprador where id=?";
         Comprador comprador = null;
         try (Connection conn = ConexaoFactory.getConexao();
              PreparedStatement ps = conn.prepareStatement(sql);) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
+            if (rs.next()) {
                 comprador = new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome"));
             }
             ConexaoFactory.close(conn, ps, rs);
