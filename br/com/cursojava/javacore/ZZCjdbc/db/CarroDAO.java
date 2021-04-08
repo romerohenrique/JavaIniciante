@@ -13,9 +13,9 @@ import java.util.List;
 
 public class CarroDAO {
     public static void save(Carro carro) {
-        String sql = "INSERT INTO `agencia`.`carro` (`placa`, `nome`,`comprador_id`) VALUES (? , ?, ?)";
+        String sql = "INSERT INTO `agencia`.`carro` (`placa`, `nome`, `comprador_id`) VALUES (?, ?, ?);";
         try (Connection conn = ConexaoFactory.getConexao();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+             PreparedStatement ps = conn.prepareStatement(sql);) {
             ps.setString(1, carro.getPlaca());
             ps.setString(2, carro.getNome());
             ps.setInt(3, carro.getComprador().getId());
@@ -50,7 +50,7 @@ public class CarroDAO {
         }
         String sql = "UPDATE `agencia`.`carro` SET `placa` = ?, `nome` = ? WHERE `id` = ?";
         try (Connection conn = ConexaoFactory.getConexao();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+             PreparedStatement ps = conn.prepareStatement(sql);) {
             ps.setString(1, carro.getPlaca());
             ps.setString(2, carro.getNome());
             ps.setInt(3, carro.getId());
