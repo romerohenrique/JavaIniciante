@@ -93,7 +93,7 @@ public class CompradorDAO {
     }
 
     public static Comprador searchById(Integer id) {
-        String sql = "SELECT id, cpf, nome FROM agencia.comprador where id=?";
+        String sql = "SELECT id, cpf, nome FROM agencia.comprador where id= ?";
         Comprador comprador = null;
         try (Connection conn = ConexaoFactory.getConexao();
              PreparedStatement ps = conn.prepareStatement(sql);) {

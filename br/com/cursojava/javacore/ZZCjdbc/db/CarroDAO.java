@@ -13,7 +13,7 @@ import java.util.List;
 
 public class CarroDAO {
     public static void save(Carro carro) {
-        String sql = "INSERT INTO `agencia`.`carro` (`placa`, `nome`, comprador_id) VALUES (? , ?, ?)";
+        String sql = "INSERT INTO `agencia`.`carro` (`placa`, `nome`,`comprador_id`) VALUES (? , ?, ?)";
         try (Connection conn = ConexaoFactory.getConexao();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, carro.getPlaca());
