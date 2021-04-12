@@ -38,12 +38,17 @@ class ThreadExemploRunnable implements Runnable {
             if (i % 100 == 0) {
                 System.out.println();
             }
+//            try {
+//                Thread.sleep(2000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
         }
     }
 }
 
 public class ThreadTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         System.out.println(Thread.currentThread().getName());
 //        ThreadExemplo t1 = new ThreadExemplo('A');
@@ -56,10 +61,13 @@ public class ThreadTest {
         Thread t3 = new Thread(new ThreadExemploRunnable('C'));
         Thread t4 = new Thread(new ThreadExemploRunnable('D'));
 
+        // usando o método join para execução thread - a - thread (execução occre dentro do main).
         t1.start();
+        t1.join();
         t2.start();
+        t2.join();
         t3.start();
-        t4.start();
+//        t4.start();
 
     }
 }
