@@ -57,7 +57,7 @@ public class Pessoa {
             return this;
         }
 
-        public Pessoa builder() {
+        public Pessoa build() {
             return new Pessoa(nome, sobrenome, apelido, nomeDamae);
         }
 

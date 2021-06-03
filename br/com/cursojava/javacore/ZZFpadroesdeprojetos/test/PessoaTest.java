@@ -10,7 +10,7 @@ public class PessoaTest {
                 .sobrenome("Furtado")
                 .apelido("Maranhão")
                 .nomeDamae("Maria Cristina")
-                .builder();
+                .build();
         System.out.println(p);
     }
 }
