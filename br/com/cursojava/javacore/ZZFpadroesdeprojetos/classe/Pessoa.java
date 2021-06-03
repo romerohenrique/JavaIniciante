@@ -57,7 +57,7 @@ public class Pessoa {
             return this;
         }
 
-        public Pessoa criarPessoal() {
+        public Pessoa builder() {
             return new Pessoa(nome, sobrenome, apelido, nomeDamae);
         }
 
