@@ -14,7 +14,7 @@ public class ContaTest implements Runnable {
         romero.start();
     }
 
-    // o método synchronized pode ser utlizados em métod ou blocos, executa uma thread por vez.
+    // o método synchronized pode ser utlizados em métodos ou blocos, ele executa uma thread por vez.
     private synchronized void saque(int valor) {
         if (conta.getSaldo() >= valor) {
             System.out.println(Thread.currentThread().getName() + " sacando o dinheiro...");

@@ -4,6 +4,8 @@ Ha dois tipos de threads,
 Thread Daemon e User
  */
 
+import static java.lang.Thread.MAX_PRIORITY;
+
 class ThreadExemplo extends Thread {
     private char c;
 
@@ -38,6 +40,7 @@ class ThreadExemploRunnable implements Runnable {
             if (i % 100 == 0) {
                 System.out.println();
             }
+            Thread.yield();//faz que a thread que está em running, volte para runnable.
 //            try {
 //                Thread.sleep(2000);
 //            } catch (InterruptedException e) {
@@ -56,18 +59,19 @@ public class ThreadTest {
 //        ThreadExemplo t3 = new ThreadExemplo('C');
 //        ThreadExemplo t4 = new ThreadExemplo('D');
 
-        Thread t1 = new Thread(new ThreadExemploRunnable('A'));
-        Thread t2 = new Thread(new ThreadExemploRunnable('B'));
-        Thread t3 = new Thread(new ThreadExemploRunnable('C'));
-        Thread t4 = new Thread(new ThreadExemploRunnable('D'));
+        Thread t1 = new Thread(new ThreadExemploRunnable('A'), "T1");
+        Thread t2 = new Thread(new ThreadExemploRunnable('B'), "T2");
+        Thread t3 = new Thread(new ThreadExemploRunnable('C'), "T3");
+        Thread t4 = new Thread(new ThreadExemploRunnable('D'), "T4");
 
         // usando o método join para execução thread - a - thread (execução occre dentro do main).
+        t1.setPriority(MAX_PRIORITY);
         t1.start();
         t1.join();
         t2.start();
         t2.join();
         t3.start();
-//        t4.start();
+        t4.start();
 
     }
 }
