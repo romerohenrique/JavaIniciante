@@ -1,6 +1,5 @@
 package br.com.cursojava.javacore.ZZCjdbc.com;
 
-import javax.sql.RowSet;
 import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.JdbcRowSet;
 import javax.sql.rowset.RowSetProvider;

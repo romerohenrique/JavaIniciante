@@ -1,6 +1,9 @@
 package br.com.cursojava.javacore.ZZEconcorrencias.test;
 
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 /*
 > Thread utilizando AtomicInteger para sincronizar as threads
 > Muito mais eficaz que utilizar o synchronized
@@ -8,10 +11,18 @@ import java.util.concurrent.atomic.AtomicInteger;
 class Contador {
     private int count;
     private AtomicInteger atomicInteger = new AtomicInteger();
+    private Lock lock = new ReentrantLock();// classe para uso avançado tipo:(bloco wait, que precisa ser interropida.
 
     public void increment() {
-        count++;
-        atomicInteger.getAndIncrement();
+        //bloco substiyui o Synchronized
+        lock.lock();
+        try {
+            count++;
+            atomicInteger.getAndIncrement();
+
+        } finally {
+            lock.unlock();
+        }
     }
 
     public int getCount() {

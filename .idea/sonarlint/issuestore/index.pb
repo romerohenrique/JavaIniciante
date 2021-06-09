@@ -13,12 +13,8 @@ d
 4br/com/cursojava/javacore/Ycolecoes/classe/Moto.java,b\d\bdf325281376d256b478b895a758f46968b95a8a
 >
 JavaTreino.iml,2\f\2ff124e0003109ecba9543bb92c419e26407d51f
-G
-.idea/libraries/lib.xml,5\6\563a23e064e6fdd2d09bd0c2d99ef456aff71a31
 h
 8br/com/cursojava/javacore/ZZCjdbc/test/TesteConexao.java,9\e\9e914ddde5a02cdc7af451fb3eedca50d5e5704c
-i
-9br/com/cursojava/javacore/ZZCjdbc/com/ConexaoFactory.java,0\0\0002be92aec020b227a07d2a2328517428ee8a03
 |
 Lbr/com/cursojava/javacore/ZZBclassesinternas/ClasseInternasEstaticaTest.java,6\8\68057f9512ea5d92e22aa7455b491161f8ea8219
 u
@@ -27,8 +23,6 @@ u
 Ebr/com/cursojava/javacore/ZZBclassesinternas/ClassesInternasTest.java,b\8\b87e2c87c97f5539956cddac25cae8f0723e8baf
 s
 Cbr/com/cursojava/javacore/ZZBclassesinternas/ClassesLocaisTest.java,f\d\fdde2e5289b08a3f27cae10cd9205a36435381f3
-S
-#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 g
 7br/com/cursojava/javacore/ZZCjdbc/classe/Comprador.java,6\d\6d4772f9603c84387d3ef3cb9acffa67808c50f5
 e
